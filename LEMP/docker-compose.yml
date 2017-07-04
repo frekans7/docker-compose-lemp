@@ -1,23 +1,25 @@
 version: '2'
 
+networks:
+    LEMP:
+
 services:
     nginx:
         image: nginx:stable-alpine
         container_name: LEMP_nginx
-        restart: always
         ports:
             - "8080:80"
         volumes:
             - ./code:/code
             - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - php
         networks:
             - LEMP
 
     mariaDB:
         image: mariadb:latest
         container_name: LEMP_mariaDB
-        restart: always
-        command: mysqld --innodb-buffer-pool-size=20M
         volumes:
             - ./database:/var/lib/mysql:rw
         ports:
@@ -32,24 +34,16 @@ services:
     php:
         image: php:7-fpm-alpine
         container_name: LEMP_php
-        restart: always
         volumes:
             - ./code:/code
         ports:
             - "9000:9000"       
-        depends_on:
-            - mariaDB
-        links:
-            - mariaDB
         networks:
             - LEMP
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: LEMP_phpMyAdmin
-        restart: always
-        links:
-            - mariaDB
         ports:
             - "8183:80"
         environment:        
@@ -59,7 +53,6 @@ services:
         networks:
             - LEMP
     
-networks:
-    LEMP:
-        driver: bridge
+
+
 
