@@ -8,7 +8,7 @@ a simple LEMP using the *Offical* Docker Repository for Alpine Linux, Nginx, Mar
 ### for remove LEMP:
 `` docker-compose down``
 
-![lemp-container](https://github.com/serkan7/docker-compose-lemp/blob/master/LEMP/code/img/LEMP.png)
+![lemp-container](https://github.com/frekans7/docker-compose-lemp/blob/master/LEMP/code/img/LEMP.gif)
 
 ![php](https://github.com/serkan7/docker-compose-lemp/blob/master/LEMP/code/img/php.png)
 
