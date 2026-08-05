@@ -58,6 +58,3 @@ docker compose down -v
 
 ![lemp-container](https://github.com/frekans7/docker-compose-lemp/blob/main/code/img/LEMP.gif)
 
-![php](https://github.com/frekans7/docker-compose-lemp/blob/main/code/img/php.png)
-
-![phpMyAdmin](https://github.com/frekans7/docker-compose-lemp/blob/main/code/img/phpMyAdmin.png)
