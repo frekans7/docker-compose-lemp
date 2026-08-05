@@ -1,0 +1,62 @@
+networks:
+  lemp:
+
+volumes:
+  db_data:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: lemp_nginx
+    ports:
+      - "${NGINX_PORT:-8080}:80"
+    volumes:
+      - ./code:/code
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    restart: unless-stopped
+    networks:
+      - lemp
+
+  php:
+    image: php:8.4-fpm-alpine
+    container_name: lemp_php
+    volumes:
+      - ./code:/code
+    restart: unless-stopped
+    networks:
+      - lemp
+
+  mariadb:
+    image: mariadb:lts
+    container_name: lemp_mariadb
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-lemp}
+      MYSQL_USER: ${MYSQL_USER:-lemp}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - lemp
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: lemp_phpmyadmin
+    ports:
+      - "${PMA_PORT:-8183}:80"
+    environment:
+      PMA_ARBITRARY: 1
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - lemp

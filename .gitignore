@@ -1,0 +1,15 @@
+# Environment variables (credentials — never commit this file!)
+.env
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE / Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
