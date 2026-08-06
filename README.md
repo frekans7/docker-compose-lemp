@@ -1,5 +1,8 @@
 # LEMP Stack
 
+![Docker Compose](https://img.shields.io/badge/Docker%20Compose-V2-2496ED?logo=docker&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A simple LEMP stack using the *Official* Docker Repository for Alpine Linux, Nginx, MariaDB, PHP 8.4 and phpMyAdmin.
 
 ## Stack
@@ -19,7 +22,8 @@ A simple LEMP stack using the *Official* Docker Repository for Alpine Linux, Ngi
 cp .env.example .env
 ```
 
-> Edit `.env` and change the default passwords before starting.
+> [!WARNING]
+> **Security Risk:** You MUST change the default `change-me` passwords for `MYSQL_ROOT_PASSWORD` and `MYSQL_PASSWORD` in the `.env` file before deploying to any publicly accessible environment.
 
 ### 2. Start LEMP
 
@@ -45,6 +49,24 @@ docker compose down
 docker compose down -v
 ```
 
+## Environment Variables
+
+The following variables are available in the `.env` file for configuration:
+
+| Variable | Description | Default Value |
+|---|---|---|
+| `NGINX_VERSION` | Docker image version for Nginx | `1.30.4-alpine` |
+| `PHP_VERSION` | Docker image version for PHP-FPM | `8.4.11-fpm-alpine` |
+| `MARIADB_VERSION` | Docker image version for MariaDB | `12.3.2` |
+| `PMA_VERSION` | Docker image version for phpMyAdmin | `5.2.3` |
+| `MYSQL_ROOT_PASSWORD` | The root password for MariaDB | `change-me` |
+| `MYSQL_DATABASE` | The name of the default database created | `lemp` |
+| `MYSQL_USER` | The name of the default database user | `lemp` |
+| `MYSQL_PASSWORD` | The password for the default database user | `change-me` |
+| `NGINX_PORT` | The host port mapped to the Nginx container | `8080` |
+| `PMA_PORT` | The host port mapped to the phpMyAdmin container | `8183` |
+
+
 ## Access
 
 | Service | URL |
@@ -54,7 +76,8 @@ docker compose down -v
 
 > Ports can be customized via the `.env` file (`NGINX_PORT`, `PMA_PORT`).
 
----
+![lemp-container](https://github.com/frekans7/docker-compose-lemp/blob/main/htdocs/img/LEMP.gif)
 
-![lemp-container](https://github.com/frekans7/docker-compose-lemp/blob/main/code/img/LEMP.gif)
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

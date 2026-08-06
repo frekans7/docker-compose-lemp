@@ -1,6 +1,9 @@
 # Environment variables (credentials — never commit this file!)
 .env
 
+# database data (container removed — files remain)
+database/
+
 # macOS system files
 .DS_Store
 .DS_Store?
