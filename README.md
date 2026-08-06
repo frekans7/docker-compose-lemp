@@ -18,7 +18,14 @@ A simple LEMP stack using the *Official* Docker Repository for Alpine Linux, Ngi
 
 ## Getting Started
 
-### 1. Copy the environment file and set your passwords
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/frekans7/docker-compose-lemp.git
+cd docker-compose-lemp
+```
+
+### 2. Copy the environment file and set your passwords
 
 ```bash
 cp .env.example .env
@@ -27,25 +34,25 @@ cp .env.example .env
 > [!WARNING]
 > **Security Risk:** You MUST change the default `change-me` passwords for `MYSQL_ROOT_PASSWORD` and `MYSQL_PASSWORD` in the `.env` file before deploying to any publicly accessible environment.
 
-### 2. Start LEMP
+### 3. Start LEMP
 
 ```bash
 docker compose up -d
 ```
 
-### 3. Stop LEMP
+### 4. Stop LEMP
 
 ```bash
 docker compose stop
 ```
 
-### 4. Remove LEMP
+### 5. Remove LEMP
 
 ```bash
 docker compose down
 ```
 
-### 5. Remove LEMP with volumes (deletes database data)
+### 6. Remove LEMP with volumes (deletes database data)
 
 ```bash
 docker compose down -v
