@@ -3,6 +3,8 @@
 ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-V2-2496ED?logo=docker&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+![lemp-container](https://github.com/frekans7/docker-compose-lemp/blob/main/htdocs/img/LEMP.gif)
+
 A simple LEMP stack using the *Official* Docker Repository for Alpine Linux, Nginx, MariaDB, PHP 8.4 and phpMyAdmin.
 
 ## Stack
@@ -75,8 +77,6 @@ The following variables are available in the `.env` file for configuration:
 | phpMyAdmin | http://localhost:8183 |
 
 > Ports can be customized via the `.env` file (`NGINX_PORT`, `PMA_PORT`).
-
-![lemp-container](https://github.com/frekans7/docker-compose-lemp/blob/main/htdocs/img/LEMP.gif)
 
 ## License
 
