@@ -11,10 +11,10 @@ A simple LEMP stack using the *Official* Docker Repository for Alpine Linux, Ngi
 
 | Service | Image |
 |---|---|
-| Web Server | `nginx:stable-alpine` |
-| PHP | `php:8.4-fpm-alpine` |
-| Database | `mariadb:lts` |
-| DB Admin | `phpmyadmin/phpmyadmin` |
+| Web Server | `nginx:1.30.4-alpine` |
+| PHP | `php:8.4.11-fpm-alpine` |
+| Database | `mariadb:12.3.2` |
+| DB Admin | `phpmyadmin:5.2.3` |
 
 ## Getting Started
 
